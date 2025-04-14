@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+.hero-section {
+  background-color: #2cace2;
+  color: #ffffff;
+  min-height: 60vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+  place-items: center;
+  opacity: 0.8; /* Opacidad general del grid */
+}
+
+.grid-icon {
+  display: block;
+  width: 60px; /* Tamaño de la imagen del icono */
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.15;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Clase que se añade/quita con JS para "iluminar" */
+.grid-icon.icon-illuminated {
+  opacity: 0.7;
+}
+
+.hero-content {
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%; /* 48px */
+  letter-spacing: -0.2px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 78px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%; /* 85.8px */
+  text-transform: capitalize;
+}
+
+/* --- Media Queries --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-icon {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  .hero-section {
+    font-size: 48px;
+  }
+  .icon-grid-background {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 10px;
+  }
+  .grid-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
