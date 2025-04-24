@@ -1,0 +1,75 @@
+@media (min-width: 992px) {
+  .world-map-section {
+    padding: 0 80px;
+  }
+}
+.world-map-section .world-map-main .world-map-container {
+  margin-top: 105px;
+}
+@media (min-width: 992px) {
+  .world-map-section .world-map-main .world-map-container {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 105px;
+  }
+}
+.world-map-section .world-map-main .world-map-container .world-map-svg {
+  width: 100%;
+  height: 500px;
+  margin: 0 15px;
+}
+.world-map-section
+  .world-map-main
+  .world-map-container
+  .marker-wrap
+  .world-map-marker {
+  fill: #003bb3;
+  fill-opacity: 1;
+  cursor: pointer;
+  r: 8;
+}
+@media (min-width: 992px) {
+  .world-map-section
+    .world-map-main
+    .world-map-container
+    .marker-wrap
+    .world-map-marker {
+    r: 10;
+  }
+}
+.world-map-section
+  .world-map-main
+  .world-map-container
+  .marker-wrap
+  .world-map-marker.selected {
+  display: none;
+}
+.world-map-section
+  .world-map-main
+  .world-map-container
+  .world-map-graph-vector
+  path {
+  fill: #d6d7d8;
+}
+.world-map-section
+  .world-map-main
+  .world-map-container
+  .world-map-graph-vector
+  path.selected {
+  fill: #707cf4;
+}
+.world-map-section
+  .world-map-main
+  .world-map-container
+  .marker-wrap
+  .selected-outer-circle {
+  fill: #003bb3;
+  fill-opacity: 0.7;
+}
+
+
+
+
+
+
+
