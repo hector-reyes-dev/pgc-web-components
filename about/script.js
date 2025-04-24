@@ -1,6 +1,42 @@
 // Select all elements with the class 'card'
 const cards = document.querySelectorAll(".card");
 
+// Funcionalidad extra: en mobile, activa la card automáticamente al entrar en el viewport
+if (window.innerWidth <= 768) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Mostrar contenido
+          const content = entry.target.querySelector('.content');
+          const title = entry.target.querySelector('.title-collapsed');
+          if (content) {
+            content.style.display = 'block';
+            setTimeout(() => (content.style.opacity = '1'), 0);
+          }
+          if (title) title.style.display = 'none';
+        } else {
+          entry.target.classList.remove('active');
+          // Ocultar contenido
+          const content = entry.target.querySelector('.content');
+          const title = entry.target.querySelector('.title-collapsed');
+          if (content) {
+            content.style.opacity = '0';
+            setTimeout(() => (content.style.display = 'none'), 180);
+          }
+          if (title) title.style.display = 'block';
+        }
+      });
+    },
+    {
+      threshold: 0.5
+    }
+  );
+  cards.forEach((card) => observer.observe(card));
+}
+
+
 // Function to remove the 'active' class from all cards
 function removeActiveClasses() {
   cards.forEach((card) => {
