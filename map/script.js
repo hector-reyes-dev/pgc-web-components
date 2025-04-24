@@ -149,10 +149,12 @@ class WorldMap {
     for (let i = 0; i < this.markers.length; i += 1) {
       const point = this.getMarkerPosition(this.markers[i]);
       if (point !== false) {
-        const marker = document.querySelector(`.world-map-marker[data-index='${this.markers[i].key}']`);
+        const marker = document.querySelector(
+          `.world-map-marker[data-index='${this.markers[i].key}']`
+        );
         if (marker) {
-          marker.setAttribute('cx', point.x);
-          marker.setAttribute('cy', point.y);
+          marker.setAttribute("cx", point.x);
+          marker.setAttribute("cy", point.y);
         }
       }
     }
@@ -206,14 +208,16 @@ class WorldMap {
 
   createMarkers() {
     const markerWrap = document.querySelector(".marker-wrap");
-    this.markers.forEach(marker => {
+    this.markers.forEach((marker) => {
       if (
         marker.hasOwnProperty("latLng") &&
         Array.isArray(marker.latLng) &&
         marker.latLng.length === 2
       ) {
         const point = this.getMarkerPosition(marker);
-        const template = document.querySelector(".marker-template circle.world-map-marker:not(.selected-outer-circle)");
+        const template = document.querySelector(
+          ".marker-template circle.world-map-marker:not(.selected-outer-circle)"
+        );
         if (template) {
           const circleEle = template.cloneNode(true);
           circleEle.setAttribute("data-index", marker.key);
@@ -230,185 +234,19 @@ class WorldMap {
 const CONTINENT_MARKERS = [
   {
     key: 1,
-    latLng: [50, -100],
-    name: "North America",
-    countries: [
-      "PR",
-      "DO",
-      "DM",
-      "LC",
-      "NI",
-      "PA",
-      "CA",
-      "SV",
-      "HT",
-      "TT",
-      "JM",
-      "GT",
-      "HN",
-      "BZ",
-      "BS",
-      "CR",
-      "US",
-      "MX",
-      "CU",
-    ],
+    latLng: [39.8283, -168], // Centro geográfico de USA
+    name: "USA",
+    countries: ["US"],
     default: true,
-    percentage: 33.5,
+    percentage: 33.5, // Puedes ajustar este valor si quieres otro tamaño
   },
   {
     key: 2,
-    latLng: [-20, -60],
-    name: "Latin America",
-    countries: [
-      "PY",
-      "CO",
-      "VE",
-      "CL",
-      "SR",
-      "BO",
-      "EC",
-      "AR",
-      "GY",
-      "BR",
-      "PE",
-      "UY",
-      "FK",
-      "GF",
-    ],
+    latLng: [23.6345, -102.5528], // Centro geográfico de México
+    name: "México",
+    countries: ["MX"],
     default: false,
-    percentage: 20,
-  },
-  {
-    key: 3,
-    latLng: [50, 30],
-    name: "Europe",
-    countries: [
-      "BE",
-      "FR",
-      "BG",
-      "DK",
-      "HR",
-      "DE",
-      "BA",
-      "HU",
-      "JE",
-      "FI",
-      "BY",
-      "GR",
-      "NL",
-      "PT",
-      "NO",
-      "LI",
-      "LV",
-      "LT",
-      "LU",
-      "FO",
-      "PL",
-      "XK",
-      "CH",
-      "AD",
-      "EE",
-      "IS",
-      "AL",
-      "IT",
-      "GG",
-      "CZ",
-      "IM",
-      "GB",
-      "AX",
-      "IE",
-      "ES",
-      "ME",
-      "MD",
-      "RO",
-      "RS",
-      "MK",
-      "SK",
-      "MT",
-      "SI",
-      "SM",
-      "UA",
-      "SE",
-      "AT",
-    ],
-    default: false,
-    percentage: 25,
-  },
-  {
-    key: 4,
-    latLng: [45, 130],
-    name: "Asia Pacific",
-    countries: [
-      "GU",
-      "PW",
-      "RU",
-      "KI",
-      "NC",
-      "NU",
-      "NZ",
-      "AU",
-      "PG",
-      "SB",
-      "BD",
-      "MN",
-      "BN",
-      "BH",
-      "BT",
-      "HK",
-      "JO",
-      "PS",
-      "LB",
-      "PF",
-      "FJ",
-      "FM",
-      "WS",
-      "VU",
-      "LA",
-      "TW",
-      "TR",
-      "LK",
-      "TL",
-      "TM",
-      "TJ",
-      "TH",
-      "XC",
-      "NP",
-      "PK",
-      "PH",
-      "-99",
-      "AE",
-      "CN",
-      "AF",
-      "IQ",
-      "JP",
-      "IR",
-      "AM",
-      "SY",
-      "VN",
-      "GE",
-      "IL",
-      "IN",
-      "AZ",
-      "ID",
-      "OM",
-      "KG",
-      "UZ",
-      "MM",
-      "SG",
-      "KH",
-      "CY",
-      "QA",
-      "KR",
-      "KP",
-      "KW",
-      "KZ",
-      "SA",
-      "MY",
-      "YE",
-    ],
-    default: false,
-    percentage: 11.5,
+    percentage: 33.5,
   },
 ];
 
@@ -417,7 +255,9 @@ const CONTINENT_MARKERS = [
  */
 function sizeOfMarkerBasedOnPercentage(percentage) {
   const parentEle = document.querySelector(".world-map-svg");
-  const totalHeight = parentEle ? parentEle.getBoundingClientRect().height : 300;
+  const totalHeight = parentEle
+    ? parentEle.getBoundingClientRect().height
+    : 300;
   let percentValue = Number(percentage);
   if (isNaN(percentValue) || percentValue <= 0) {
     return 8; // valor por defecto seguro
@@ -430,7 +270,9 @@ function sizeOfMarkerBasedOnPercentage(percentage) {
 /* Window resize function for handling responsive. */
 function windowResize() {
   const mainSection = document.querySelector(".world-map-section");
-  const windowWidth = mainSection.querySelector(".world-map-container").getBoundingClientRect().width - 30;
+  const windowWidth =
+    mainSection.querySelector(".world-map-container").getBoundingClientRect()
+      .width - 30;
   const defaultWidth = 900;
   const calculatedWidthHeight = windowWidth / defaultWidth;
   const vectorGraphEle = mainSection.querySelector(".world-map-graph-vector");
@@ -438,9 +280,13 @@ function windowResize() {
   if (vectorGraphEle) {
     const parentEle = mainSection.querySelector(".world-map-svg");
     parentEle.classList.remove("d-none");
-    parentEle.style.height = `${vectorGraphEle.getBoundingClientRect().height}px`;
+    parentEle.style.height = `${
+      vectorGraphEle.getBoundingClientRect().height
+    }px`;
   }
-  const marker = mainSection.querySelector(".world-map-marker.selected-outer-circle");
+  const marker = mainSection.querySelector(
+    ".world-map-marker.selected-outer-circle"
+  );
   const percentage = parseInt(marker.getAttribute("data-percentage"), 10);
   const radius = sizeOfMarkerBasedOnPercentage(percentage);
   marker.setAttribute("r", `${radius}`);
@@ -449,15 +295,27 @@ function windowResize() {
 function selectMarkerOnGraph(obj) {
   if (!obj || !Array.isArray(obj.countries)) return;
   const mainSection = document.querySelector(".world-map-section");
-  const vectorGraph = mainSection.querySelectorAll(".world-map-graph-vector path");
+  const vectorGraph = mainSection.querySelectorAll(
+    ".world-map-graph-vector path"
+  );
   const markerWrap = mainSection.querySelector(".marker-wrap");
-  document.querySelectorAll(".world-map-marker").forEach(el => el.classList.remove("selected"));
-  mainSection.querySelectorAll(".marker-wrap circle.selected-outer-circle").forEach(el => el.remove());
-  vectorGraph.forEach(el => el.classList.remove("selected"));
-  const selectedCountries = Array.from(vectorGraph).filter(graph => obj.countries.includes(graph.getAttribute("data-code")));
-  const marker = mainSection.querySelector(`.world-map-marker[data-index='${obj.key}']`);
+  document
+    .querySelectorAll(".world-map-marker")
+    .forEach((el) => el.classList.remove("selected"));
+  mainSection
+    .querySelectorAll(".marker-wrap circle.selected-outer-circle")
+    .forEach((el) => el.remove());
+  vectorGraph.forEach((el) => el.classList.remove("selected"));
+  const selectedCountries = Array.from(vectorGraph).filter((graph) =>
+    obj.countries.includes(graph.getAttribute("data-code"))
+  );
+  const marker = mainSection.querySelector(
+    `.world-map-marker[data-index='${obj.key}']`
+  );
   marker.classList.add("selected");
-  const outerCircleTemplate = mainSection.querySelector(".marker-template circle.selected-outer-circle");
+  const outerCircleTemplate = mainSection.querySelector(
+    ".marker-template circle.selected-outer-circle"
+  );
   const outerCircleEle = outerCircleTemplate.cloneNode(true);
   const radius = sizeOfMarkerBasedOnPercentage(obj.percentage);
   outerCircleEle.setAttribute("data-index", obj.key);
@@ -466,11 +324,11 @@ function selectMarkerOnGraph(obj) {
   outerCircleEle.setAttribute("data-percentage", obj.percentage);
   outerCircleEle.setAttribute("r", `${radius}`);
   markerWrap.appendChild(outerCircleEle);
-  selectedCountries.forEach(el => el.classList.add("selected"));
+  selectedCountries.forEach((el) => el.classList.add("selected"));
 }
 
 function initialSelect() {
-  const obj = CONTINENT_MARKERS.find(item => item.default === true);
+  const obj = CONTINENT_MARKERS.find((item) => item.default === true);
   if (obj) {
     selectMarkerOnGraph(obj);
   }
@@ -478,12 +336,12 @@ function initialSelect() {
 
 function onMarkerClick() {
   const markers = document.querySelectorAll("circle.world-map-marker");
-  markers.forEach(marker => {
+  markers.forEach((marker) => {
     marker.addEventListener("click", (e) => {
       const clickedEle = e.target;
       let key = clickedEle.getAttribute("data-index");
       key = parseInt(key, 10);
-      const obj = CONTINENT_MARKERS.find(item => item.key === key);
+      const obj = CONTINENT_MARKERS.find((item) => item.key === key);
       selectMarkerOnGraph(obj);
     });
   });
