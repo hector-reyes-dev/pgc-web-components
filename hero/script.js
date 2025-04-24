@@ -9,18 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Configuración ---                 ---
   const iconImagePaths = [
-    "./assets/icon-Beach.png",
-    "./assets/icon-Camping.png",
-    "./assets/icon-Chair.png",
-    "./assets/icon-FansPurifiers.png",
-    "./assets/icon-GardenCenter.png",
-    "./assets/icon-Heating.png",
-    "./assets/icon-KitchenDiningRoom.png",
-    "./assets/icon-LivingRoom.png",
-    "./assets/icon-OfficeBacktoSchool.png",
-    "./assets/icon-OutdoorCooking.png",
-    "./assets/icon-PatioFurniture.png",
-    "./assets/icon-StorageFurniture.png",
+    "http://pacificglob.com/wp-content/uploads/icon-Beach.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-Camping.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-Chair.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-FansPurifiers.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-GardenCenter.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-Heating.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-KitchenDiningRoom.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-LivingRoom.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-OfficeBacktoSchool.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-OutdoorCooking.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-PatioFurniture.webp",
+    "http://pacificglob.com/wp-content/uploads/icon-StorageFurniture.webp",
   ];
 
   const gridCellSize = 80;
