@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Country Pill</title>
+    <!-- Flag‑icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 1rem;
+        width: 100%;
+        height: 100vh;
+      }
+
+      /* Pill container */
+      .country-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #d9ecf5;
+        padding: 0.4rem 1.2rem 0.4rem 0.4rem;
+        border-radius: 9999px;
+        font-family: system-ui, sans-serif;
+      }
+
+      /* Flag tweaks */
+      .country-pill .flag {
+        width: 2.25rem; /* 36 px */
+        height: 2.25rem;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px #ffffff inset;
+        flex: 0 0 auto;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Desplaza la imagen de la bandera hacia la izquierda */
+      .flag-left {
+        background-position: left !important;
+      }
+
+      .country-name {
+        font-weight: 600;
+        color: #16425b;
+        font-size: 1rem;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- USA -->
+    <div class="country-pill">
+      <span class="fi fi-us flag" aria-label="United States flag"></span>
+      <span class="country-name">USA</span>
+    </div>
+
+    <!-- China -->
+    <div class="country-pill">
+      <span class="fi fi-cn flag flag-left" aria-label="China flag"></span>
+      <span class="country-name">China</span>
+    </div>
+
+    <!-- Vietnam -->
+    <div class="country-pill">
+      <span class="fi fi-vn flag" aria-label="Vietnam flag"></span>
+      <span class="country-name">Vietnam</span>
+    </div>
+
+    <!-- Mexico -->
+    <div class="country-pill">
+      <span class="fi fi-mx flag" aria-label="Mexico flag"></span>
+      <span class="country-name">Mexico</span>
+    </div>
+
+    <!-- Dominican Republic -->
+    <div class="country-pill">
+      <span class="fi fi-do flag" aria-label="Dominican Republic flag"></span>
+      <span class="country-name">Dominican Republic</span>
+    </div>
+
+    <!-- Guatemala -->
+    <div class="country-pill">
+      <span class="fi fi-gt flag" aria-label="Guatemala flag"></span>
+      <span class="country-name">Guatemala</span>
+    </div>
+
+    <!-- El Salvador -->
+    <div class="country-pill">
+      <span class="fi fi-sv flag" aria-label="El Salvador flag"></span>
+      <span class="country-name">El Salvador</span>
+    </div>
+
+    <!-- Costa Rica -->
+    <div class="country-pill">
+      <span class="fi fi-cr flag" aria-label="Costa Rica flag"></span>
+      <span class="country-name">Costa Rica</span>
+    </div>
+
+    <!-- Panama -->
+    <div class="country-pill">
+      <span class="fi fi-pa flag" aria-label="Panama flag"></span>
+      <span class="country-name">Panama</span>
+    </div>
+
+    <!-- Peru -->
+    <div class="country-pill">
+      <span class="fi fi-pe flag" aria-label="Peru flag"></span>
+      <span class="country-name">Peru</span>
+    </div>
+
+    <!-- Honduras -->
+    <div class="country-pill">
+      <span class="fi fi-hn flag" aria-label="Honduras flag"></span>
+      <span class="country-name">Honduras</span>
+    </div>
+
+    <!-- Colombia -->
+    <div class="country-pill">
+      <span class="fi fi-co flag" aria-label="Colombia flag"></span>
+      <span class="country-name">Colombia</span>
+    </div>
+
+    <!-- Brazil -->
+    <div class="country-pill">
+      <span class="fi fi-br flag" aria-label="Brazil flag"></span>
+      <span class="country-name">Brazil</span>
+    </div>
+
+    <!-- Chile -->
+    <div class="country-pill">
+      <span class="fi fi-cl flag flag-left" aria-label="Chile flag"></span>
+      <span class="country-name">Chile</span>
+    </div>
+
+    <!-- Argentina -->
+    <div class="country-pill">
+      <span class="fi fi-ar flag" aria-label="Argentina flag"></span>
+      <span class="country-name">Argentina</span>
+    </div>
+  </body>
+</html>
