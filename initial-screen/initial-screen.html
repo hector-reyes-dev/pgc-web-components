@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Transition</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: blue;
+        overflow: hidden;
+      }
+
+      .initial-screen-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: hideAll 1s forwards;
+        animation-delay: 2s;
+        z-index: 1000;
+      }
+
+      .initial-screen-logo {
+        width: 257px;
+        height: auto;
+        position: absolute;
+        animation: moveBox 1.5s ease-in-out forwards;
+      }
+
+      @keyframes moveBox {
+        0% {
+          top: 50%;
+          left: 50%;
+          transform: scale(2);
+          transform: translate(-50%, -50%);
+        }
+        10% {
+          top: 50%;
+          left: 50%;
+          transform: scale(2);
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          top: 20px;
+          left: 20px;
+          transform: scale(2);
+          transform: translate(8%, 0);
+        }
+      }
+
+      @keyframes hideAll {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="initial-screen-container">
+      <div class="initial-screen-logo">
+        <img
+          src="http://pacificglob.com/wp-content/uploads/logo-1.png"
+          width="257"
+          height="auto"
+          alt="Pacific Global Logo"
+        />
+      </div>
+    </div>
+  </body>
+</html>

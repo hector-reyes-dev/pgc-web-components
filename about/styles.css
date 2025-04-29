@@ -31,6 +31,10 @@ body {
   overflow: hidden;
 }
 
+.card-right {
+  background-position: right;
+}
+
 .card::after {
   content: "";
   position: absolute;
